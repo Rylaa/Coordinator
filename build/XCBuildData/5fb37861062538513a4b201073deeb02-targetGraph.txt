@@ -1,0 +1,21 @@
+Target dependency graph (8 targets)
+AdvancedPageControl in Pods, no dependencies
+CocoaAsyncSocket in Pods, no dependencies
+Bagel in Pods, depends on:
+CocoaAsyncSocket in Pods (explicit)
+SwiftyBeaver in Pods, no dependencies
+lottie-ios in Pods, no dependencies
+Pods-IsFaktoring in Pods, depends on:
+AdvancedPageControl in Pods (explicit)
+Bagel in Pods (explicit)
+CocoaAsyncSocket in Pods (explicit)
+SwiftyBeaver in Pods (explicit)
+lottie-ios in Pods (explicit)
+Pods-IsFaktoring-IsFaktoringUITests in Pods, depends on:
+AdvancedPageControl in Pods (explicit)
+Bagel in Pods (explicit)
+CocoaAsyncSocket in Pods (explicit)
+SwiftyBeaver in Pods (explicit)
+lottie-ios in Pods (explicit)
+Pods-IsFaktoringTests in Pods, depends on:
+Pods-IsFaktoring in Pods (explicit)
