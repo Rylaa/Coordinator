@@ -7,7 +7,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-  
+    var appCoordinator: AppCoordinator?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -15,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.overrideUserInterfaceStyle = .dark
         window!.makeKeyAndVisible()
         
-        let appCoordinator = AppCoordinator(window: window!)
-        appCoordinator.start(.Splash)
+        appCoordinator = AppCoordinator(window: window!)
+        appCoordinator!.start(.Splash)
         
         return true
     }

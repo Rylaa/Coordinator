@@ -15,9 +15,10 @@ enum AppChildCoordinator {
 final class AppCoordinator: Coordinator {
     
     let window: UIWindow
-    var childCoordinators = [AppChildCoordinator: Coordinator]()
+    private var childCoordinators = [AppChildCoordinator: Coordinator]()
+    private var ss = [Coordinator]()
+    private var deepLinkType: DeepLinkOption?
     var navigationController: UINavigationController
-    var deepLinkType: DeepLinkOption?
     
     init(window: UIWindow) {
         self.window = window
@@ -53,15 +54,15 @@ extension AppCoordinator {
     func showHomeFlow() {
         let homeCoordinator = HomeFlowCoordinator(navigationController)
         childCoordinators[.home] = homeCoordinator
-        homeCoordinator.start()
         homeCoordinator.delegate = self
+        homeCoordinator.start()
     }
     
     func showLoginFlow(with type: LoginFlowRouteType) {
         let loginCoordinator = LoginFlowCoordinator(navigationController)
         childCoordinators[.login] = loginCoordinator
-        loginCoordinator.start(with: type)
         loginCoordinator.delegate = self
+        loginCoordinator.start(with: type)
     }
 }
 

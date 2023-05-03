@@ -21,7 +21,7 @@ final class HomeFlowCoordinator: NSObject, Coordinator {
     private var childCoordinators = [HomeChildCoordinator: Coordinator]()
     private var tabBarController: UITabBarController
     var navigationController: UINavigationController
-    var delegate: HomeFlowCoordinatorDelegate?
+    weak var delegate: HomeFlowCoordinatorDelegate?
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -29,13 +29,13 @@ final class HomeFlowCoordinator: NSObject, Coordinator {
     }
     
     func start() {
+        print("###### init \(self)")
         let controllers: [UINavigationController] = [getTab1(), getTab2()]
 
         tabBarController.setViewControllers(controllers, animated: true)
         tabBarController.delegate = self
         tabBarController.selectedIndex = .zero
         tabBarController.tabBar.isTranslucent = false
-
         navigationController.setViewControllers([tabBarController], animated: true)
     }
     
@@ -45,8 +45,8 @@ final class HomeFlowCoordinator: NSObject, Coordinator {
         
         let coordinator = Tab1Coordinator(navController)
         childCoordinators[.tab1] = coordinator
-        coordinator.start()
         coordinator.delegate = self
+        coordinator.start()
         
         return navController
     }
@@ -57,8 +57,8 @@ final class HomeFlowCoordinator: NSObject, Coordinator {
         
         let coordinator = Tab2Coordinator(navController)
         childCoordinators[.tab2] = coordinator
-        coordinator.start()
         coordinator.delegate = self
+        coordinator.start()
         
         return navController
     }

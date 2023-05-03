@@ -14,7 +14,6 @@ final class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            print(self.delegate == nil,"####")
             self.delegate?.routeHandler(route: .login)
         }
     }

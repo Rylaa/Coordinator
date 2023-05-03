@@ -24,7 +24,7 @@ protocol LoginRouteDelegate: AnyObject {
 final class LoginFlowCoordinator: Coordinator {
     
     var navigationController: UINavigationController
-    var delegate: LoginCoordinatorDelegate?
+    weak var delegate: LoginCoordinatorDelegate?
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
